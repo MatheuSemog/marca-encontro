@@ -481,7 +481,6 @@ function renderizarEtapa(){
                 <button class="opcao-comida">🌮 Mexicana</button>
                 <button class="opcao-comida">🍗 Frango Frito</button>
                 <button class="opcao-comida">🥙 Árabe</button>
-                <button class="opcao-comida">🍛 Indiana</button>
                 <button class="opcao-comida">🦐 Frutos do Mar</button>
                 <button class="opcao-comida">🥞 Café da Manhã</button>
                 <button class="opcao-comida">🍰 Cafeteria</button>
