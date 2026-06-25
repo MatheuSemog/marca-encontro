@@ -616,7 +616,7 @@ function proximaEtapa(){
 
         // Data muito futura
         if(escolhida > limite){
-            alert("Escolha uma data dentro dos próximos 3 meses.");
+            alert("Escolha uma data dentro dos próximos 4 meses.");
             return;
         }
 
