@@ -593,20 +593,30 @@ function proximaEtapa(){
             return;
         }
 
-        const escolhida =
-            new Date(dadosEncontro.data);
+        const escolhida = new Date(
+            dadosEncontro.data + "T12:00:00"
+        );
 
-        const limite =
-            new Date();
+        // Hoje (zera horas)
+        const hoje = new Date();
+        hoje.setHours(0, 0, 0, 0);
 
+        // Limite máximo
+        const limite = new Date();
         limite.setMonth(
             limite.getMonth() + 4
         );
+        limite.setHours(23, 59, 59, 999);
 
+        // Data passada
+        if(escolhida < hoje){
+            alert("Escolha uma data a partir de hoje.");
+            return;
+        }
+
+        // Data muito futura
         if(escolhida > limite){
-            alert(
-                "Escolha uma data dentro dos próximos 3 meses."
-            );
+            alert("Escolha uma data dentro dos próximos 3 meses.");
             return;
         }
 
