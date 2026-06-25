@@ -405,15 +405,27 @@ function renderizarEtapa(){
 
     if(etapa === 1){
 
+        const hoje = new Date();
+
+        const dataMin =
+            hoje.toISOString().split("T")[0];
+
+        const dataMax = new Date(
+            hoje.getFullYear(),
+            hoje.getMonth() + 4,
+            hoje.getDate()
+        ).toISOString().split("T")[0];
+
         conteudoModal.innerHTML = `
 
             <h2>📅 Qual dia você prefere?</h2>
 
             <input
-            type="date"
-            id="campoData"
-            value="${dadosEncontro.data}"
-            min="${new Date().toISOString().split('T')[0]}"
+                type="date"
+                id="campoData"
+                value="${dadosEncontro.data}"
+                min="${dataMin}"
+                max="${dataMax}"
             >
 
             <div class="botoes-modal">
@@ -575,9 +587,26 @@ function proximaEtapa(){
     if(etapa === 1){
 
         dadosEncontro.data =
-        document.getElementById("campoData").value;
+            document.getElementById("campoData").value;
 
         if(!dadosEncontro.data){
+            return;
+        }
+
+        const escolhida =
+            new Date(dadosEncontro.data);
+
+        const limite =
+            new Date();
+
+        limite.setMonth(
+            limite.getMonth() + 4
+        );
+
+        if(escolhida > limite){
+            alert(
+                "Escolha uma data dentro dos próximos 3 meses."
+            );
             return;
         }
 
